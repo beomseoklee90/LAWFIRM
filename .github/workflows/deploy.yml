@@ -4,6 +4,12 @@ on:
   push:
     branches: ["main"]
 
+# GitHub Pages 배포를 위한 권한 설정
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -22,6 +28,13 @@ jobs:
           npm install
           npm run build
 
-      # 만약 어제 Vercel 홈페이지 안 들어가고 성공하셨다면
-      # Vercel이 깃허브 Push를 감지해서 따로 배포하고 있을 겁니다.
-      # 이 액션은 "빌드가 깨지지 않았는지" 확인하는 용도로만 작동하게 둡니다.
+      # 1. 빌드된 결과물(out 폴더)을 깃허브 서버에 업로드
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+      # 2. 업로드된 결과물을 실제로 배포
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
