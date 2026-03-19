@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     description: "포트폴리오: 전문성을 구조화하는 가장 세련된 방법",
     url: "https://portfolio-lawfirm.djicebreaking.org",
     type: "website",
+    images: [
+      {
+        url: "./images/lawyer-profile.png", // 카톡 공유 시 뜰 메인 이미지 (1200x630 권장)
+        width: 1200,
+        height: 630,
+        alt: "DJ Icebreaking 공연 이미지",
+      },
+    ],
   },
 };
 
