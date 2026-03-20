@@ -46,13 +46,14 @@ export default function LawyerBriefingRoom() {
   ];
 
   return (
-    <div className="h-screen w-full overflow-hidden relative bg-[#1a120e] flex flex-col">
+    // dvh (Dynamic Viewport Height)를 사용해 모바일 브라우저 툴바 대응
+    <div className="h-screen h-[100dvh] w-full overflow-hidden relative bg-[#1a120e] flex flex-col">
       {/* 텍스처 배경 */}
-      <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
+      <div className="absolute inset-0 opacity-40 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none" />
 
-      {/* 🧭 Navbar: 상단 고정 */}
-      <nav className="shrink-0 w-full px-6 md:px-16 py-6 md:py-8 flex justify-between items-center z-[10000] bg-black/40 backdrop-blur-md border-b border-white/5 relative">
+      {/* 🧭 Navbar: 상단 고정 (z-index 조정) */}
+      <nav className="shrink-0 w-full px-6 md:px-16 py-6 md:py-8 flex justify-between items-center z-[50] bg-black/40 backdrop-blur-md border-b border-white/5 relative">
         <div className="flex flex-col">
           <span
             className="font-black text-xl md:text-3xl tracking-tighter italic leading-none drop-shadow-lg"
@@ -68,6 +69,7 @@ export default function LawyerBriefingRoom() {
           </span>
         </div>
 
+        {/* 데스크탑 메뉴 */}
         <div className="hidden lg:flex gap-8 text-[13px] font-bold tracking-[0.1em] uppercase">
           {menuItems.map((item, i) => (
             <button
@@ -81,9 +83,10 @@ export default function LawyerBriefingRoom() {
           ))}
         </div>
 
+        {/* 햄버거 버튼 (드로워보다 위로 보냄) */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden flex flex-col gap-1.5 z-[10001] p-2"
+          className="lg:hidden flex flex-col gap-1.5 z-[100001] p-2 relative"
         >
           <motion.div
             animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 8 : 0 }}
@@ -103,37 +106,34 @@ export default function LawyerBriefingRoom() {
         </button>
       </nav>
 
-      {/* 📱 메인 영역: 펜슬 그림자 흔적까지 완전 삭제 */}
+      {/* 📱 메인 영역 */}
       <main className="flex-1 w-full flex items-center justify-center relative z-10 p-0 md:p-8 overflow-hidden">
-        {/* 📱 디바이스 하드웨어 프레임 */}
-        <div className="relative w-full max-w-[1200px] h-full bg-white md:bg-[#e2e4e7] rounded-none md:rounded-[40px] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] flex flex-col p-0 md:p-[20px] z-20">
+        {/* 📱 디바이스 하드웨어 프레임 (LEGAL-ARCH PAD) */}
+        <div className="relative w-full max-w-[1200px] h-full bg-white md:bg-[#e2e4e7] rounded-none md:rounded-[40px] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] flex flex-col p-0 md:p-[20px] z-20 overflow-hidden">
           {/* 📷 데스크탑 카메라 */}
-          <div className="hidden md:flex absolute top-[8px] left-1/2 -translate-x-1/2 items-center gap-2 z-30">
+          <div className="hidden md:flex absolute top-[8px] left-1/2 -translate-x-1/2 items-center gap-2 z-30 pointer-events-none">
             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
             <div className="w-3 h-3 bg-[#111] rounded-full border border-gray-400 relative">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-blue-900/40 rounded-full" />
             </div>
           </div>
 
-          {/* 🏷️ 하단 로고 */}
-          <div className="hidden md:block absolute bottom-[5px] left-1/2 -translate-x-1/2 text-[9px] font-black tracking-[0.4em] text-black-400 opacity-70">
-            LEGAL-ARCH PAD PRO
-          </div>
-
-          {/* 🖥️ 내부 디스플레이 */}
+          {/* 🖥️ 내부 디스플레이 영역 */}
           <div className="h-full w-full bg-[#fafafa] flex flex-col relative rounded-none md:rounded-[20px] overflow-hidden">
-            {/* 내부 상단바 */}
-            <div className="shrink-0 w-full px-6 py-4 md:py-6 pt-6 flex justify-between items-center border-b border-gray-100 bg-white z-30 font-bold">
-              <span className="text-[10px] md:text-[12px] text-black-400 tracking-[0.2em] uppercase italic">
+            {/* 내부 상단바: LEGAL-ARCH 구동 문구 한 줄 유지 */}
+            <div className="shrink-0 w-full px-6 py-4 md:py-6 pt-6 flex justify-between items-center border-b border-gray-100 bg-white z-30 font-bold overflow-hidden">
+              <span className="text-[10px] md:text-[12px] text-gray-400 tracking-[0.1em] uppercase italic truncate mr-2">
                 Briefing File: CASE_2026_PRO.PDF
               </span>
-              <div className="text-[10px] md:text-[12px] text-red-900 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-red-900 rounded-full animate-ping" />
-                <span>LEGAL-ARCH PAD 구동 중</span>
+              <div className="text-[10px] md:text-[12px] text-red-900 flex items-center gap-2 shrink-0 bg-red-50/50 px-2 py-1 rounded-sm border border-red-100/50">
+                <span className="w-1 h-1 md:w-1.5 md:h-1.5 bg-red-900 rounded-full animate-ping shrink-0" />
+                <span className="whitespace-nowrap tracking-tighter">
+                  LEGAL-ARCH 구동 중
+                </span>
               </div>
             </div>
 
-            {/* 📜 내부 스크롤 */}
+            {/* 📜 내부 스크롤 영역 */}
             <div
               ref={scrollContainerRef}
               className="flex-1 overflow-y-auto overflow-x-hidden scroll-smooth no-scrollbar relative z-10"
@@ -148,30 +148,33 @@ export default function LawyerBriefingRoom() {
               ))}
             </div>
 
-            {/* 내부 하단바 */}
-            <div className="shrink-0 w-full px-6 py-4 md:py-6 bg-gray-50 border-t border-gray-100 flex justify-between items-center z-30 font-bold text-black-300">
-              <span className="text-[9px] md:text-[11px] tracking-[0.2em]">
+            {/* 내부 하단바: 가려지지 않도록 높이 보장 */}
+            <div className="shrink-0 w-full px-6 py-4 md:py-5 bg-gray-50 border-t border-gray-100 flex justify-between items-center z-30 font-bold text-gray-400">
+              <span className="text-[9px] md:text-[11px] tracking-[0.2em] whitespace-nowrap">
                 © 2026 LEGAL ARCHITECT
+              </span>
+              <span className="hidden md:block text-[8px] tracking-widest opacity-50">
+                LEGAL-ARCH PAD PRO V1.0
               </span>
             </div>
           </div>
         </div>
       </main>
 
-      {/* 📱 모바일 드로워 */}
+      {/* 📱 모바일 드로워: 최상위 레이어로 배치 (z-[100000]) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[#1a120e] z-[9999] flex flex-col items-center justify-center gap-8 lg:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 bg-[#1a120e] z-[100000] flex flex-col items-center justify-center gap-8 lg:hidden"
           >
             {menuItems.map((item, i) => (
               <button
                 key={i}
                 onClick={() => scrollToSection(i)}
-                className="text-3xl font-black italic text-[#e4d4b1]"
+                className="text-3xl font-black italic text-[#e4d4b1] hover:text-white transition-colors"
               >
                 {item}
               </button>
