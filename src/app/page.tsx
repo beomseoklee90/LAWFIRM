@@ -123,7 +123,7 @@ export default function LawyerBriefingRoom() {
             {/* 내부 상단바 */}
             <div className="shrink-0 w-full px-6 py-4 md:py-6 pt-6 flex justify-between items-center border-b border-gray-100 bg-white z-30 font-bold overflow-hidden">
               <span className="text-[10px] md:text-[12px] text-gray-400 tracking-[0.1em] uppercase italic truncate mr-2">
-                Briefing File: CASE_2026_PRO.PDF
+                2026_Briefing_File.PDF
               </span>
               <div className="text-[10px] md:text-[12px] text-red-900 flex items-center gap-2 shrink-0 bg-red-50/50 px-2 py-1 rounded-sm border border-red-100/50">
                 <span className="w-1 h-1 md:w-1.5 md:h-1.5 bg-red-900 rounded-full animate-ping shrink-0" />
