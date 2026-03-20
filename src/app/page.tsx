@@ -73,7 +73,7 @@ export default function LawyerBriefingRoom() {
             <button
               key={i}
               onClick={() => scrollToSection(i)}
-              className="transition-all hover:brightness-125"
+              className="transition-all hover:brightness-125 hover:text-white"
               style={{ color: GoldMain }}
             >
               {item}
@@ -103,23 +103,37 @@ export default function LawyerBriefingRoom() {
         </button>
       </nav>
 
-      {/* 📱 메인 영역: 위아래 빈 공간 없이 꽉 채움 */}
+      {/* 📱 메인 영역: 펜슬 그림자 흔적까지 완전 삭제 */}
       <main className="flex-1 w-full flex items-center justify-center relative z-10 p-0 md:p-8 overflow-hidden">
-        {/* 📱 메인 프레임: 모바일은 꽉 차게, 데스크탑은 여백 조절 */}
-        <div className="relative w-full max-w-[1200px] h-full bg-white border-0 md:border-[16px] border-[#e2e4e7] rounded-none md:rounded-[40px] shadow-2xl overflow-hidden z-20 flex flex-col">
-          <div className="h-full w-full bg-[#fafafa] flex flex-col relative">
+        {/* 📱 디바이스 하드웨어 프레임 */}
+        <div className="relative w-full max-w-[1200px] h-full bg-white md:bg-[#e2e4e7] rounded-none md:rounded-[40px] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.5)] flex flex-col p-0 md:p-[20px] z-20">
+          {/* 📷 데스크탑 카메라 */}
+          <div className="hidden md:flex absolute top-[8px] left-1/2 -translate-x-1/2 items-center gap-2 z-30">
+            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
+            <div className="w-3 h-3 bg-[#111] rounded-full border border-gray-400 relative">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 bg-blue-900/40 rounded-full" />
+            </div>
+          </div>
+
+          {/* 🏷️ 하단 로고 */}
+          <div className="hidden md:block absolute bottom-[5px] left-1/2 -translate-x-1/2 text-[9px] font-black tracking-[0.4em] text-black-400 opacity-70">
+            X-PAD PRO
+          </div>
+
+          {/* 🖥️ 내부 디스플레이 */}
+          <div className="h-full w-full bg-[#fafafa] flex flex-col relative rounded-none md:rounded-[20px] overflow-hidden">
             {/* 내부 상단바 */}
-            <div className="shrink-0 w-full px-6 py-4 md:py-6 flex justify-between items-center border-b border-gray-100 bg-white z-30">
-              <span className="text-[10px] md:text-[12px] font-black text-gray-400 tracking-[0.2em] uppercase italic">
-                Briefing File: CASE_2026_PRO
+            <div className="shrink-0 w-full px-6 py-4 md:py-6 pt-6 flex justify-between items-center border-b border-gray-100 bg-white z-30 font-bold">
+              <span className="text-[10px] md:text-[12px] text-black-400 tracking-[0.2em] uppercase italic">
+                Briefing File: CASE_2026_PRO.PDF
               </span>
-              <div className="text-[10px] md:text-[12px] font-black text-red-900 flex items-center gap-2">
+              <div className="text-[10px] md:text-[12px] text-red-900 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-red-900 rounded-full animate-ping" />
-                <span className="hidden md:inline">SECURE CONNECTION</span>
+                <span>X-PAD 구동 중</span>
               </div>
             </div>
 
-            {/* 📜 내부 스크롤 영역 */}
+            {/* 📜 내부 스크롤 */}
             <div
               ref={scrollContainerRef}
               className="flex-1 overflow-y-auto overflow-x-hidden scroll-smooth no-scrollbar relative z-10"
@@ -135,8 +149,8 @@ export default function LawyerBriefingRoom() {
             </div>
 
             {/* 내부 하단바 */}
-            <div className="shrink-0 w-full px-6 py-4 md:py-6 bg-gray-50/80 border-t border-gray-100 flex justify-between items-center z-30 font-bold text-gray-300">
-              <span className="text-[9px] md:text-[11px] tracking-[0.2em] uppercase">
+            <div className="shrink-0 w-full px-6 py-4 md:py-6 bg-gray-50 border-t border-gray-100 flex justify-between items-center z-30 font-bold text-black-300">
+              <span className="text-[9px] md:text-[11px] tracking-[0.2em]">
                 © 2026 LEGAL ARCHITECT
               </span>
             </div>
