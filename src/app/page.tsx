@@ -69,11 +69,14 @@ export default function LawyerBriefingRoom() {
 
         {/* ✅ 데스크탑 메뉴: 다시 보이게 수정 */}
         <div className="hidden lg:flex gap-10 text-[13px] font-black tracking-[0.1em] uppercase">
-          {menuItems.map((item, i) => (
+          {itemNames.map((item, i) => (
             <button
               key={i}
               onClick={() => scrollToSection(i)}
-              className="transition-all hover:text-white"
+              // hover:text-white (글자색 흰색으로)
+              // hover:opacity-100 (불투명도 100%로)
+              // transition-all (부드러운 변화)
+              className="transition-all duration-300 opacity-70 hover:opacity-100 hover:text-white hover:scale-105 active:scale-95 cursor-pointer"
               style={{ color: GoldMain }}
             >
               {item}
@@ -124,7 +127,7 @@ export default function LawyerBriefingRoom() {
               <div className="text-[9px] md:text-[11px] text-red-900 flex items-center gap-2 shrink-0 bg-red-50 px-2 py-1 rounded-full">
                 <span className="w-1 h-1 bg-red-900 rounded-full animate-ping shrink-0" />
                 <span className="whitespace-nowrap font-black uppercase">
-                  LEGAL-ARCH ACTIVE
+                  LEGAL-PAD ACTIVE
                 </span>
               </div>
             </div>
