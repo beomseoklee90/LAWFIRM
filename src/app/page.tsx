@@ -14,7 +14,7 @@ export default function LawyerBriefingRoom() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const GoldMain = "#c5a065";
+  // 상단 로고용 컬러 (변수 유지)
   const GoldLight = "#e4d4b1";
   const GoldDim = "rgba(197, 160, 101, 0.5)";
 
@@ -67,17 +67,13 @@ export default function LawyerBriefingRoom() {
           </span>
         </div>
 
-        {/* ✅ 데스크탑 메뉴: 다시 보이게 수정 */}
+        {/* ✅ 데스크탑 메뉴: 인라인 style 제거 후 Tailwind color 적용 -> Hover 완벽 작동 */}
         <div className="hidden lg:flex gap-10 text-[13px] font-black tracking-[0.1em] uppercase">
-          {itemNames.map((item, i) => (
+          {menuItems.map((item, i) => (
             <button
               key={i}
               onClick={() => scrollToSection(i)}
-              // hover:text-white (글자색 흰색으로)
-              // hover:opacity-100 (불투명도 100%로)
-              // transition-all (부드러운 변화)
-              className="transition-all duration-300 opacity-70 hover:opacity-100 hover:text-white hover:scale-105 active:scale-95 cursor-pointer"
-              style={{ color: GoldMain }}
+              className="transition-all duration-300 opacity-70 hover:opacity-100 text-[#c5a065] hover:text-white hover:scale-105 active:scale-95 cursor-pointer"
             >
               {item}
             </button>
@@ -91,34 +87,31 @@ export default function LawyerBriefingRoom() {
         >
           <motion.div
             animate={{ rotate: isMenuOpen ? 45 : 0, y: isMenuOpen ? 8 : 0 }}
-            className="w-6 h-0.5"
-            style={{ backgroundColor: GoldMain }}
+            className="w-6 h-0.5 bg-[#c5a065]"
           />
           <motion.div
             animate={{ opacity: isMenuOpen ? 0 : 1 }}
-            className="w-6 h-0.5"
-            style={{ backgroundColor: GoldMain }}
+            className="w-6 h-0.5 bg-[#c5a065]"
           />
           <motion.div
             animate={{ rotate: isMenuOpen ? -45 : 0, y: isMenuOpen ? -8 : 0 }}
-            className="w-6 h-0.5"
-            style={{ backgroundColor: GoldMain }}
+            className="w-6 h-0.5 bg-[#c5a065]"
           />
         </button>
       </nav>
 
       {/* 📱 메인 영역 */}
       <main className="flex-1 w-full pt-[80px] md:pt-[110px] flex items-center justify-center relative z-10 p-3 md:p-8 overflow-hidden">
-        {/* ✅ 디바이스 하드웨어 프레임: 모바일에서도 가장 바깥쪽 rounded 적용 */}
-        <div className="relative w-full max-w-[1200px] h-full bg-white md:bg-[#e2e4e7] rounded-[40px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)] flex flex-col p-1.5 md:p-[20px] z-20 overflow-hidden border border-white/10">
+        {/* ✅ 디바이스 하드웨어 프레임: 가장 바깥쪽 흰색 라운딩(rounded-[35px]) */}
+        <div className="relative w-full max-w-[1200px] h-full bg-white md:bg-[#e2e4e7] rounded-[35px] md:rounded-[45px] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)] flex flex-col p-1.5 md:p-[20px] z-20 overflow-hidden border border-white/10">
           {/* 📷 데스크탑 전용 카메라 홀 */}
           <div className="hidden md:flex absolute top-[8px] left-1/2 -translate-x-1/2 items-center gap-2 z-30 opacity-40">
             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
             <div className="w-3 h-3 bg-[#111] rounded-full border border-gray-400" />
           </div>
 
-          {/* 🖥️ 내부 디스플레이 영역 */}
-          <div className="h-full w-full bg-[#fafafa] flex flex-col relative rounded-[35px] md:rounded-[20px] overflow-hidden">
+          {/* 🖥️ 내부 디스플레이 영역: 외부 곡률과 패딩을 계산한 내부 라운딩(rounded-[30px]) */}
+          <div className="h-full w-full bg-[#fafafa] flex flex-col relative rounded-[30px] md:rounded-[25px] overflow-hidden shadow-inner">
             {/* 내부 상단바 */}
             <div className="shrink-0 w-full px-6 py-4 md:py-6 pt-7 md:pt-6 flex justify-between items-center border-b border-gray-100 bg-white z-30 font-bold overflow-hidden">
               <span className="text-[10px] md:text-[12px] text-gray-400 tracking-[0.05em] uppercase italic truncate mr-2">
@@ -173,7 +166,7 @@ export default function LawyerBriefingRoom() {
               <button
                 key={i}
                 onClick={() => scrollToSection(i)}
-                className="text-4xl font-black italic text-[#e4d4b1] hover:text-white uppercase"
+                className="text-4xl font-black italic text-[#e4d4b1] hover:text-white hover:scale-105 active:scale-95 transition-all uppercase"
               >
                 {item}
               </button>
