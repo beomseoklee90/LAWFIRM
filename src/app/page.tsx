@@ -117,7 +117,7 @@ export default function LawyerBriefingRoom() {
 
           {/* 🏷️ 하단 로고 */}
           <div className="hidden md:block absolute bottom-[5px] left-1/2 -translate-x-1/2 text-[9px] font-black tracking-[0.4em] text-black-400 opacity-70">
-            X-PAD PRO
+            DJ-ICE-BREAKING PAD PRO
           </div>
 
           {/* 🖥️ 내부 디스플레이 */}
@@ -129,7 +129,7 @@ export default function LawyerBriefingRoom() {
               </span>
               <div className="text-[10px] md:text-[12px] text-red-900 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-red-900 rounded-full animate-ping" />
-                <span>X-PAD 구동 중</span>
+                <span>DJ-ICE-BREAKING PAD 구동 중</span>
               </div>
             </div>
 
