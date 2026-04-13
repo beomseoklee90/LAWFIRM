@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-lawfirm.djicebreaking.org/sitemap.xml
+Sitemap: https://ai-consulting.djicebreaking.org/sitemap.xml
