@@ -8,6 +8,7 @@ import {
   StrategySection,
   ExpertiseSection,
   ContactSection,
+  CaseStudySection,
 } from "../components/Sections";
 
 export default function LawyerBriefingRoom() {
@@ -42,6 +43,7 @@ export default function LawyerBriefingRoom() {
     <EvidenceSection key="s3" />,
     <StrategySection key="s4" />,
     <ExpertiseSection key="s5" />,
+    <CaseStudySection key="s6" />,
     <ContactSection key="s6" />,
   ];
 
@@ -57,7 +59,7 @@ export default function LawyerBriefingRoom() {
             className="font-black text-xl md:text-3xl tracking-tighter italic leading-none"
             style={{ color: GoldLight }}
           >
-            LEGAL ARCHITECT
+            STRATEGY ARCHITECT
           </span>
           <span
             className="text-[8px] md:text-[10px] tracking-[0.3em] mt-1 md:mt-2 uppercase font-bold opacity-70"
