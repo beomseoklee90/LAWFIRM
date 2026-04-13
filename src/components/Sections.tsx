@@ -75,10 +75,11 @@ export const IntroSection = () => (
       정확한 해답을 요구하십시오.
     </h1>
     <p className="text-gray-600 font-normal text-lg md:text-2xl leading-relaxed break-keep">
-      시중의 템플릿은 업무를 간소화하지만, 리더의 '생각'을 누락시킵니다.
+      시중의 인공지능 프롬프트 템플릿은 업무를 간소화하지만, 리더의 '생각'을
+      누락시킵니다.
       <br className="hidden md:block" />
-      단순한 현상 분석을 넘어, 방향을 지시하고 결과를 더블 체크하는 진짜
-      프레임워크가 필요합니다.
+      단순한 현상 분석을 넘어, 프롬프트에 방향을 지시하고 결과를 더블 체크하는
+      진짜 프레임워크가 필요합니다.
     </p>
   </motion.div>
 );
@@ -96,7 +97,7 @@ export const EvidenceSection = () => (
         </span>
       </div>
       <p className="text-gray-900 text-lg md:text-2xl font-bold tracking-[0.1em] mb-12">
-        전략적 공진을 위한 5대 파라미터 (Parameters)
+        전략적 공진을 위한 5대 프롬프트 파라미터 (Parameters)
       </p>
 
       <div className="w-full max-w-4xl text-left border-t border-gray-200 pt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -216,11 +217,11 @@ export const ContactSection = () => (
     <p className="text-gray-600 mb-12 font-medium text-lg md:text-2xl leading-relaxed break-keep">
       의문으로 시작한 보고서를, 확신의 전략으로 바꿉니다.
       <br className="hidden md:block" />
-      지금 귀사에 가장 정교한 AI 의사결정 시스템을 도입하십시오.
+      지금 귀사에 가장 정교한 AI 프롬프트 의사결정 시스템을 도입하십시오.
     </p>
     <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
       <button className="w-full md:w-auto px-12 py-7 bg-gray-900 text-white font-black text-sm md:text-lg tracking-[0.2em] rounded-full shadow-2xl hover:bg-red-900 transition-all active:scale-95">
-        전략 프레임워크 도입 문의
+        인공지능 프롬프트 전략 프레임워크 도입 문의
       </button>
       <a
         href="mailto:DJ.ICE.BREAKING@outlook.kr"
