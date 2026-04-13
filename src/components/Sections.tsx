@@ -242,7 +242,7 @@ export const CaseStudySection = () => (
     <p className="text-gray-600 text-center mb-12 text-lg md:text-xl break-keep">
       가장 원초적인 '날것의 전압'을 그대로 공개합니다.
       <br className="hidden md:block" />
-      아래는 대기업 가전 렌탈 B사가 경쟁사 A사를 역공학하기 위해 수행한 실제
+      아래는 대기업 가전 렌탈 B사가 경쟁사 A사를 역공학하기 위해 수행한 가상
       시뮬레이션 원본입니다.
     </p>
 
