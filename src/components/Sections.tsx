@@ -46,8 +46,6 @@ export const AboutSection = () => (
             것. 그것이 바로 압도적 통찰의 시작입니다.
           </p>
           <p className="text-gray-500 text-sm md:text-lg font-light leading-relaxed break-keep border-l-4 border-red-900/30 pl-6 italic">
-            [인공지능 활용 강의]
-            <br />
             "우리는 화려한 템플릿 그 너머의 '진짜 해답'을 봅니다. 당신의 확신을
             데이터와 로직으로 단단하게 세워 올리겠습니다."
           </p>
