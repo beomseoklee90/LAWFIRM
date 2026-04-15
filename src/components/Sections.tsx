@@ -13,18 +13,18 @@ const fadeInUp = {
 export const AboutSection = () => (
   <motion.div {...fadeInUp} className="w-full max-w-5xl px-4 py-10">
     <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-      {/* <div className="w-full md:w-2/5 aspect-[3/4] relative group">
+      <div className="w-full md:w-2/5 aspect-[3/4] relative group">
         <div className="absolute inset-0 border-2 border-red-900/20 translate-x-4 translate-y-4 rounded-2xl transition-transform group-hover:translate-x-2 group-hover:translate-y-2" />
         <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gray-200 shadow-2xl">
-          {/* 📸 대표님 사진 경로 }
+          {/* 📸 대표님 사진 경로 */}
 
           <img
-            src="/ceo-profile.png"
+            src="https://dj-ice-breaking-images.s3.us-east-1.amazonaws.com/beomseok.png"
             alt="대표 이범석"
             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
           />
         </div>
-      </div> */}
+      </div>
 
       <div className="w-full md:w-3/5 text-left">
         <h3 className="text-red-900 font-black text-[14px] md:text-[16px] tracking-[0.8em] mb-8 uppercase opacity-80">
