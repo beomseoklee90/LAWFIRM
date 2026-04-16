@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 
   // 카톡/링크드인 등 공유 시 뜰 이미지 설정 (Open Graph)
   openGraph: {
-    title: "AI 공진 전략 연구소: 범석 Matrix",
+    title: "AI 전략 연구소: 범석 Matrix | 확신을 외주화하지 마십시오",
     description: "의문으로 시작한 보고서를, 확신의 전략으로 바꿉니다.",
     url: "https://ai-consulting.djicebreaking.org", // (참고: 도메인 변경 시 여기도 업데이트 필요)
     type: "website",
