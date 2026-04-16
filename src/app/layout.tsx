@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://ai-consulting.djicebreaking.org/" },
   // 검색 결과에 뜰 제목: 임원들이 가장 민감하게 반응하는 단어(확신, 전략) 전진 배치
   title: "AI 전략 연구소: 범석 Matrix | 확신을 외주화하지 마십시오",
 
